@@ -4,8 +4,12 @@ namespace App\Providers;
 
 use App\Filament\Pages\Auth\EditProfile;
 use App\Filament\Pages\Dashboard;
+use App\Filament\Resources\CategoryResource;
+use App\Filament\Resources\ManufacturResource;
 use App\Filament\Resources\PermissionResource;
+use App\Filament\Resources\ProductResource;
 use App\Filament\Resources\RoleResource;
+use App\Filament\Resources\SubCategoryResource;
 use App\Filament\Resources\UserResource;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
@@ -51,6 +55,10 @@ class AppServiceProvider extends ServiceProvider
                 UserResource::class,
                 RoleResource::class,
                 PermissionResource::class,
+                CategoryResource::class,
+                SubCategoryResource::class,
+                ProductResource::class,
+                ManufacturResource::class,
             ]
         );
     }

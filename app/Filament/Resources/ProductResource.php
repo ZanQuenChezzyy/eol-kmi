@@ -102,6 +102,22 @@ class ProductResource extends Resource
                             ->minLength(5)
                             ->maxLength(30)
                             ->required(),
+                        Select::make('category_id')
+                            ->label('Kategori')
+                            ->placeholder('Pilih Kategori')
+                            ->relationship('category', 'name')
+                            ->native(false)
+                            ->preload()
+                            ->searchable()
+                            ->required(),
+                        Select::make('sub_category_id')
+                            ->label('Sub Kategori')
+                            ->placeholder('Pilih Sub Kategori')
+                            ->hint('Opsional')
+                            ->relationship('subCategory', 'name')
+                            ->native(false)
+                            ->preload()
+                            ->searchable(),
                     ])->columns(2)
                     ->columnSpan(1),
 
@@ -187,6 +203,11 @@ class ProductResource extends Resource
                                         ->label('Manufaktur'),
                                     TextEntry::make('lisence_number')
                                         ->label('Nomor Lisensi'),
+                                    TextEntry::make('category.name')
+                                        ->label('Kategori'),
+                                    TextEntry::make('subCategory.name')
+                                        ->label('Sub Kategori')
+                                        ->default('Tidak Ada Sub Kategori'),
                                 ])->columns(3),
                         ])->columnSpan(5),
                         Fieldset::make('Informasi Lisensi')
@@ -255,6 +276,11 @@ class ProductResource extends Resource
                 TextColumn::make('lisence_number')
                     ->label('Nomor Lisensi')
                     ->searchable(),
+                TextColumn::make('category.name')
+                    ->label('Kategori'),
+                TextColumn::make('subCategory.name')
+                    ->label('Sub Kategori')
+                    ->default('Tidak Ada Sub Kategori'),
                 TextColumn::make('duration')
                     ->label('Durasi')
                     ->badge()

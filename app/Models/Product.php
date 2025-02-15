@@ -12,6 +12,8 @@ class Product extends Model
     protected $fillable = [
         'name',
         'manufactur_id',
+        'category_id',
+        'sub_category_id',
         'lisence_number',
         'duration',
         'installed_at',
@@ -45,4 +47,13 @@ class Product extends Model
     {
         return $this->belongsTo(\App\Models\Manufactur::class, 'manufactur_id', 'id');
     }
+    public function Category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(\App\Models\Category::class, 'category_id', 'id');
+    }
+    public function SubCategory(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(\App\Models\SubCategory::class, 'sub_category_id', 'id');
+    }
+
 }

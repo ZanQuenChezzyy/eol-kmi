@@ -32,15 +32,15 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('/')
             ->spa()
-            ->brandLogo(asset('img/laravelchezzy.png'))
-            ->brandLogoHeight('2rem')
+            ->brandLogo(asset('img/logo-kmi.png'))
+            ->brandLogoHeight('3rem')
             ->login(Login::class)
             ->profile(EditProfile::class)
             ->colors([
                 'danger' => Color::Rose,
                 'gray' => Color::Gray,
                 'info' => Color::Cyan,
-                'primary' => Color::Indigo,
+                'primary' => Color::Blue,
                 'success' => Color::Emerald,
                 'warning' => Color::Orange,
             ])
@@ -63,7 +63,7 @@ class AdminPanelProvider extends PanelProvider
                     ->formPanelWidth('40%')
                     ->emptyPanelBackgroundColor(Color::hex('#030712'))
                     ->emptyPanelBackgroundImageOpacity('60%')
-                    ->emptyPanelBackgroundImageUrl(asset('img/auth/background-auth.png')),
+                    ->emptyPanelBackgroundImageUrl(asset('img/auth/background-auth.jpg')),
                 LightSwitchPlugin::make(),
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')

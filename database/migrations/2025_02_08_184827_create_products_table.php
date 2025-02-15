@@ -14,6 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->string('name', 50);
             $table->foreignId('manufactur_id')->constrained('manufacturs')->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
+            $table->foreignId('sub_category_id')->nullable()->constrained('sub_categories');
             $table->string('lisence_number', 45);
             $table->unsignedTinyInteger('duration')->length(1);
             $table->date('installed_at');
